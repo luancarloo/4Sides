@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>4Sides Logística e Serviços</title>
+<meta name="description" content="4Sides Logística e Serviços LTDA — operações portuárias e logísticas, fornecimento de mão de obra e os sistemas SteelPort e WoodPort para controle de carga.">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0f2236; --navy-2:#16314d; --navy-3:#1f4266;
+  --steel:#8a97a6; --line:#dfe4ea; --bg:#f5f7f9; --white:#fff;
+  --ink:#16202b; --ink-2:#4a5866; --accent:#2f7fd1; --accent-2:#5aa5ef;
+  --radius:14px; --max:1160px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:"IBM Plex Sans",system-ui,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+.mono{font-family:"IBM Plex Mono",monospace;letter-spacing:.08em;text-transform:uppercase;font-size:13px}
+
+/* ---------- header ---------- */
+header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .25s,box-shadow .25s}
+header.solid{background:rgba(15,34,54,.96);box-shadow:0 1px 0 rgba(255,255,255,.06);backdrop-filter:blur(8px)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff;font-weight:700;letter-spacing:.04em}
+.brand img{height:44px;width:auto}
+.menu{display:flex;gap:30px;list-style:none}
+.menu a{color:#d4dde7;text-decoration:none;font-size:15px;font-weight:500}
+.menu a:hover{color:#fff}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid transparent;transition:transform .15s,background .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:#2670bb}
+.btn-ghost{border-color:rgba(255,255,255,.35);color:#fff}
+.btn-ghost:hover{background:rgba(255,255,255,.08)}
+.menu .btn{padding:9px 18px;color:#fff}
+.burger{display:none;background:none;border:0;color:#fff;width:44px;height:44px;cursor:pointer}
+.burger svg{width:26px;height:26px}
+
+/* ---------- hero ---------- */
+.hero{position:relative;background:radial-gradient(1200px 600px at 85% 20%,var(--navy-3) 0%,transparent 60%),var(--navy);color:#fff;overflow:hidden;padding:150px 0 110px}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:56px 56px;mask-image:linear-gradient(180deg,#000 40%,transparent)}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.hero .mono{color:var(--accent-2)}
+.hero h1{font-size:clamp(36px,5vw,58px);line-height:1.08;font-weight:700;margin:18px 0 22px;letter-spacing:-.01em}
+.hero h1 span{color:var(--accent-2)}
+.hero p.lead{font-size:19px;color:#c3cfdb;max-width:560px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.hero-logo{justify-self:center;width:min(380px,80%);opacity:.95;filter:drop-shadow(0 20px 50px rgba(0,0,0,.35));animation:spin-in 1.4s ease-out}
+@keyframes spin-in{from{opacity:0;transform:rotate(-25deg) scale(.9)}to{opacity:.95;transform:none}}
+.stats{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);overflow:hidden;margin-top:80px}
+.stats div{background:rgba(15,34,54,.85);padding:22px 24px}
+.stats b{display:block;font-size:22px;font-weight:600}
+.stats small{color:#9fb0c2;font-size:14px}
+
+/* ---------- sections ---------- */
+section{padding:100px 0}
+.alt{background:var(--bg)}
+.head{max-width:720px;margin-bottom:52px}
+.head .mono{color:var(--accent)}
+.head h2{font-size:clamp(28px,3.6vw,40px);line-height:1.15;margin:12px 0 16px;letter-spacing:-.01em}
+.head p{color:var(--ink-2);font-size:18px}
+
+/* quem somos */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.about p{color:var(--ink-2);margin-bottom:16px}
+.values{display:grid;gap:14px}
+.value{display:flex;gap:16px;padding:20px;border:1px solid var(--line);border-radius:var(--radius);background:#fff}
+.value .ic{flex:none;width:44px;height:44px;border-radius:10px;background:#e9f2fc;color:var(--accent);display:grid;place-items:center}
+.value .ic svg{width:22px;height:22px}
+.value h3{font-size:17px;margin-bottom:2px}
+.value p{margin:0;font-size:15px}
+
+/* serviços */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.pillar{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;display:flex;flex-direction:column;transition:box-shadow .2s,transform .2s}
+.pillar:hover{box-shadow:0 18px 40px -18px rgba(15,34,54,.25);transform:translateY(-3px)}
+.pillar .num{font-family:"IBM Plex Mono",monospace;color:var(--steel);font-size:14px}
+.pillar h3{font-size:22px;margin:10px 0 10px}
+.pillar>p{color:var(--ink-2);font-size:16px;margin-bottom:18px}
+.pillar ul{list-style:none;display:grid;gap:9px;margin-top:auto}
+.pillar li{font-size:15px;padding-left:22px;position:relative}
+.pillar li::before{content:"";position:absolute;left:0;top:9px;width:10px;height:2px;background:var(--accent)}
+
+/* sistemas */
+.systems{background:var(--navy);color:#fff}
+.systems .head p{color:#b7c4d2}
+.systems .head .mono{color:var(--accent-2)}
+.big-nums{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px}
+.big-nums div{border:1px solid rgba(90,165,239,.35);background:linear-gradient(135deg,rgba(47,127,209,.22),rgba(47,127,209,.04));border-radius:var(--radius);padding:30px 34px}
+.big-nums b{display:block;font-size:clamp(38px,5vw,56px);line-height:1.05;font-weight:700;letter-spacing:-.02em;color:#fff}
+.big-nums span{display:block;margin-top:8px;color:#b7c4d2;font-size:17px}
+.sys-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.sys{background:var(--navy-2);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:34px;position:relative;overflow:hidden}
+.sys .tag{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.08em;padding:5px 10px;border-radius:6px;background:rgba(90,165,239,.14);color:var(--accent-2)}
+.sys h3{font-size:30px;margin:16px 0 8px;letter-spacing:.01em}
+.sys>p{color:#b7c4d2;margin-bottom:22px}
+.sys ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 18px}
+.sys li{font-size:15px;color:#dbe4ed;display:flex;gap:9px}
+.sys li svg{flex:none;width:18px;height:18px;margin-top:3px;color:var(--accent-2)}
+.sys .glyph{position:absolute;right:-30px;top:-30px;width:170px;height:170px;opacity:.06}
+.sys-foot{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px}
+.chip{font-size:13px;padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.18);color:#c9d5e1}
+
+/* clientes */
+.clients{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.client{border:1px solid var(--line);border-radius:var(--radius);background:#fff;padding:26px 18px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px;min-height:130px;justify-content:center}
+.client b{font-size:21px;letter-spacing:.02em;color:var(--navy)}
+.client small{color:var(--ink-2);font-size:13px}
+.fronts{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.fronts span{font-size:14px;padding:8px 14px;border-radius:999px;background:#e9f2fc;color:var(--navy-3);font-weight:500}
+
+/* contato */
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.cbox{background:var(--navy);color:#fff;border-radius:20px;padding:40px}
+.cbox h3{font-size:24px;margin-bottom:22px}
+.cline{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-top:1px solid rgba(255,255,255,.1)}
+.cline svg{flex:none;width:22px;height:22px;color:var(--accent-2);margin-top:2px}
+.cline small{display:block;color:#9fb0c2;font-size:13px}
+.cline a{text-decoration:none}
+.cline a:hover{text-decoration:underline}
+
+footer{background:#0b1a2a;color:#8fa1b3;padding:40px 0;font-size:14px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;align-items:center}
+footer img{height:54px;width:auto}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s,transform .7s}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.hero-logo{animation:none}html{scroll-behavior:auto}}
+
+/* ---------- responsivo ---------- */
+@media (max-width:980px){
+  .hero .wrap,.about,.contact,.sys-grid{grid-template-columns:1fr}
+  .hero-logo{display:none}
+  .pillars{grid-template-columns:1fr}
+  .clients{grid-template-columns:repeat(3,1fr)}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .burger{display:block}
+  .menu{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;gap:0;background:var(--navy);padding:8px 16px 18px;border-top:1px solid rgba(255,255,255,.08)}
+  .menu.open{display:flex}
+  .menu li a{display:block;padding:13px 4px}
+  .menu .btn{justify-content:center;margin-top:8px}
+  header.open{background:var(--navy)}
+}
+@media (max-width:760px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  section{padding:72px 0}
+  .hero{padding:118px 0 70px}
+  .stats{margin-top:50px}
+  .clients{grid-template-columns:repeat(2,1fr)}
+  .client:last-child:nth-child(odd){grid-column:1/-1}
+  .sys{padding:26px}
+  .sys ul{grid-template-columns:1fr}
+  .cbox{padding:28px}
+  .big-nums{grid-template-columns:1fr;gap:14px}
+  .big-nums div{padding:22px 24px}
+}
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap nav">
+    <a href="#inicio" class="brand"><img src="img/logo-4sides-clara.png" alt="4Sides Logística e Serviços"></a>
+    <button class="burger" aria-label="Abrir menu" aria-expanded="false" onclick="toggleMenu(this)">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <ul class="menu" id="menu">
+      <li><a href="#quem-somos">Quem somos</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#sistemas">Sistemas</a></li>
+      <li><a href="#clientes">Clientes</a></li>
+      <li><a href="#contato" class="btn btn-primary">Fale conosco</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div>
+      <span class="mono">Logística portuária · Mão de obra · Tecnologia</span>
+      <h1>Sua carga sob controle, <span>de todos os lados.</span></h1>
+      <p class="lead">A 4Sides Logística e Serviços une operação no cais e no armazém, equipes qualificadas e sistemas próprios para dar ao cliente rastreabilidade total da carga, da descarga do navio até a saída do caminhão.</p>
+      <div class="ctas">
+        <a href="#contato" class="btn btn-primary">Solicitar proposta</a>
+        <a href="#sistemas" class="btn btn-ghost">Conhecer SteelPort e WoodPort</a>
+      </div>
+    </div>
+    <img class="hero-logo" src="img/logo-4sides-clara.png" alt="">
+  </div>
+  <div class="wrap">
+    <div class="stats">
+      <div><b>Operação</b><small>portuária e de armazenagem</small></div>
+      <div><b>Mão de obra</b><small>dimensionada por demanda</small></div>
+      <div><b>+500 mil t</b><small>movimentadas nos nossos sistemas</small></div>
+      <div><b>+R$ 20 milhões</b><small>faturados através dos sistemas</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUEM SOMOS -->
+<section id="quem-somos">
+  <div class="wrap about">
+    <div class="reveal">
+      <div class="head" style="margin-bottom:24px">
+        <span class="mono">Quem somos</span>
+        <h2>Gente do porto, com ferramentas do nosso jeito.</h2>
+      </div>
+      <p>A <strong>4Sides Logística e Serviços LTDA</strong> nasceu dentro da rotina portuária. Conhecemos de perto o que acontece no costado do navio, no pátio e no armazém, e foi dessa vivência que surgiram nossos serviços e nossos sistemas.</p>
+      <p>Atuamos em três frentes que se complementam: executamos e acompanhamos operações logísticas, fornecemos mão de obra preparada para o dia a dia da operação e desenvolvemos tecnologia que transforma cada movimento de carga em informação confiável para o cliente.</p>
+      <p>O nome traduz a proposta: olhar a operação pelos quatro lados — quem embarca, quem armazena, quem transporta e quem paga — e entregar a todos a mesma informação, no mesmo momento.</p>
+    </div>
+    <div class="values reveal">
+      <div class="value">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5z"/></svg></div>
+        <div><h3>Direção</h3><p>Planejamento de cada operação com o cliente antes de o navio atracar.</p></div>
+      </div>
+      <div class="value">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <div><h3>Segurança e conformidade</h3><p>Equipes treinadas, integradas e com EPIs, dentro das normas do porto.</p></div>
+      </div>
+      <div class="value">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg></div>
+        <div><h3>Transparência</h3><p>Saldos, tickets, relatórios e faturamento acessíveis a qualquer hora.</p></div>
+      </div>
+      <div class="value">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div><h3>Proximidade</h3><p>Atendimento direto de quem está na operação, sem intermediários.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos" class="alt">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="mono">Serviços</span>
+      <h2>Três frentes, uma operação só.</h2>
+      <p>Contrate uma frente isolada ou o pacote completo: serviço, equipe e sistema trabalhando juntos.</p>
+    </div>
+    <div class="pillars">
+      <article class="pillar reveal">
+        <span class="num">01</span>
+        <h3>Prestação de serviços logísticos</h3>
+        <p>Acompanhamento e execução de operações de carga e descarga, armazenagem e expedição.</p>
+        <ul>
+          <li>Descarga e embarque de navios</li>
+          <li>Bobinas de aço, carga geral e granel</li>
+          <li>Madeira em fardos e painéis</li>
+          <li>Conferência, tally e relatórios de embarque</li>
+          <li>Controle de armazém, mapeamento e inventário</li>
+          <li>Expedição rodoviária com emissão de tickets</li>
+        </ul>
+      </article>
+      <article class="pillar reveal">
+        <span class="num">02</span>
+        <h3>Fornecimento de mão de obra</h3>
+        <p>Profissionais preparados para a rotina portuária, alocados conforme o ritmo da sua operação.</p>
+        <ul>
+          <li>Conferentes e apontadores</li>
+          <li>Equipes de armazém e pátio</li>
+          <li>Supervisão de turno</li>
+          <li>Escalas por navio, turno ou período</li>
+          <li>Integração e EPIs em dia</li>
+          <li>Reposição rápida em picos de demanda</li>
+        </ul>
+      </article>
+      <article class="pillar reveal">
+        <span class="num">03</span>
+        <h3>Sistemas de gestão de carga</h3>
+        <p>Tecnologia própria, construída a partir da operação real e ajustada para cada cliente.</p>
+        <ul>
+          <li>SteelPort — bobinas de aço e carga geral</li>
+          <li>WoodPort — embarque e estoque de madeira</li>
+          <li>Acesso por perfil e por armazém</li>
+          <li>Uso no celular e tablet, no pátio</li>
+          <li>Relatórios em Excel e PDF</li>
+          <li>Implantação e suporte pela nossa equipe</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SISTEMAS -->
+<section id="sistemas" class="systems">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="mono">Sistemas</span>
+      <h2>Do navio ao caminhão, cada volume rastreado.</h2>
+      <p>Plataformas web que rodam no navegador, sem instalação, com dados na nuvem e acesso controlado por usuário.</p>
+    </div>
+    <div class="big-nums reveal">
+      <div><b>+500 mil</b><span>toneladas movimentadas nos sistemas</span></div>
+      <div><b>+R$ 20 milhões</b><span>faturados através dos sistemas</span></div>
+    </div>
+    <div class="sys-grid">
+      <article class="sys reveal">
+        <svg class="glyph" viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="6"><circle cx="50" cy="50" r="40"/><circle cx="50" cy="50" r="14"/></svg>
+        <span class="tag">AÇO · CARGA GERAL · GRANEL</span>
+        <h3>SteelPort</h3>
+        <p>Gestão completa de bobinas de aço e carga geral em ambiente portuário: da lista de descarga ao faturamento da armazenagem.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>Descarga e expedição por bobina</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>Mapeamento de pilhas por armazém</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>Leitura da bobina por foto</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>Tickets de expedição numerados</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>Faturamento de armazenagem por período</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>Histórico e auditoria das operações</li>
+        </ul>
+        <div class="sys-foot"><span class="chip">Por BL e por cliente</span><span class="chip">Excel e PDF</span><span class="chip">App no celular</span></div>
+      </article>
+      <article class="sys reveal">
+        <svg class="glyph" viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="6"><rect x="12" y="20" width="76" height="16" rx="3"/><rect x="12" y="42" width="76" height="16" rx="3"/><rect x="12" y="64" width="76" height="16" rx="3"/></svg>
+        <span class="tag">MADEIRA · EMBARQUE · ESTOQUE</span>
+        <h3>WoodPort</h3>
+        <p>Controle do embarque de madeira por lote e fardo, com emissão e validação de tickets por QR Code e plano de estiva por porão.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>Lista de carga por lote e fardos</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>Tickets de caminhão com QR Code</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>Validação no costado pelo celular</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>Hatch list por porão e camada</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>Estoque e armazenagem por armador</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>Impressão térmica direto no armazém</li>
+        </ul>
+        <div class="sys-foot"><span class="chip">Cadastro de motoristas</span><span class="chip">Plano de estiva</span><span class="chip">Android e iPhone</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTES -->
+<section id="clientes">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="mono">Clientes</span>
+      <h2>Quem confia na 4Sides.</h2>
+      <p>Empresas que contam com nossos serviços, nossas equipes e nossos sistemas no dia a dia da operação.</p>
+    </div>
+    <div class="clients reveal">
+      <div class="client"><b>Seatrade</b><small>Agência e operação portuária</small></div>
+      <div class="client"><b>Logimodal</b><small>Logística</small></div>
+      <div class="client"><b>Marcor</b><small>Logística</small></div>
+      <div class="client"><b>Eucatex</b><small>Painéis de madeira</small></div>
+      <div class="client"><b>Carli Plac</b><small>Painéis de madeira</small></div>
+    </div>
+    <div class="fronts reveal">
+      <span>Prestação de serviços</span><span>Fornecimento de mão de obra</span><span>Sistemas SteelPort e WoodPort</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato" class="alt">
+  <div class="wrap contact">
+    <div class="reveal">
+      <div class="head" style="margin-bottom:24px">
+        <span class="mono">Contato</span>
+        <h2>Vamos conversar sobre a sua próxima operação.</h2>
+        <p>Conte o tipo de carga, o volume e o prazo. Respondemos com uma proposta para serviço, equipe, sistema ou tudo junto.</p>
+      </div>
+      <a class="btn btn-primary" href="https://wa.me/5547992385525" target="_blank" rel="noopener">Chamar no WhatsApp</a>
+    </div>
+    <div class="cbox reveal">
+      <h3>4Sides Logística e Serviços LTDA</h3>
+      <div class="cline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <div><small>E-mail</small><a href="mailto:contato@4sides.com.br">contato@4sides.com.br</a></div>
+      </div>
+      <div class="cline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>
+        <div><small>Telefone / WhatsApp</small><a href="tel:+5547992385525">(47) 99238-5525</a></div>
+      </div>
+      <div class="cline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        <div><small>Endereço</small>São Francisco do Sul / SC</div>
+      </div>
+      <div class="cline">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h10M7 13h6"/></svg>
+        <div><small>CNPJ</small>29.927.450/0001-06</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="img/logo-4sides-clara.png" alt="4Sides">
+    <span>© <span id="ano"></span> 4Sides Logística e Serviços LTDA · CNPJ 29.927.450/0001-06 · São Francisco do Sul / SC</span>
+    <a href="https://app.4sides.com.br" style="color:#c9d5e1">Acesso ao sistema →</a>
+  </div>
+</footer>
+
+<script>
+document.getElementById('ano').textContent = new Date().getFullYear();
+const hdr = document.querySelector('header');
+const onScroll = () => hdr.classList.toggle('solid', scrollY > 30);
+addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+function toggleMenu(b){
+  const m = document.getElementById('menu');
+  const open = m.classList.toggle('open');
+  hdr.classList.toggle('open', open);
+  b.setAttribute('aria-expanded', open);
+}
+document.querySelectorAll('#menu a').forEach(a => a.addEventListener('click', () => {
+  document.getElementById('menu').classList.remove('open'); hdr.classList.remove('open');
+}));
+
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+} else document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+</script>
+</body>
+</html>
